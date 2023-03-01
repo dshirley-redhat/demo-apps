@@ -5,6 +5,9 @@ kind: Kustomization
 bases:
   - ../../base
 
+resources:
+  - namespace.yaml
+
 images:
   - name: petclinic
     newName: quay.io/pittar/petclinic
