@@ -1,5 +1,5 @@
 # Use a base image, such as ubuntu
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 USER root
 
@@ -14,8 +14,11 @@ RUN apt-get update && \
     gnupg2 \
     lsb-release \
     sudo \
-    go \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -Lo /tmp/go https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
+RUN tar -C /usr/local/ -xzf /tmp/go/go1.23.1.linux-amd64.tar.gz
+RUN rm -rf /tmp/go
 
 #ENV KUBEBUILDER_VERSION=4.5.0 \
 #    KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v${KUBEBUILDER_VERSION}.tar.gz
