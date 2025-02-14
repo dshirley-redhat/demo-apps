@@ -37,7 +37,7 @@ RUN curl -L -o /tmp/kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GO
 #ENV PATH="/usr/local/bin/:${PATH}"
 
 # Verify installations
-RUN git --version && /tmp/kubebuilder version
+RUN git --version && kubebuilder version
 
 # Set default command
 CMD [ "bash" ]
