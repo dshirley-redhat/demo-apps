@@ -16,13 +16,15 @@ RUN apt-get update && \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-RUN export KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz
+RUN export KUBEBUILDER_VERSION=4.5.0
+RUN export KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v$KUBEBUILDER_VERSION.tar.gz
 
 # Install Kubebuilder
-RUN curl -Lo /tmp/kubebuilder.tar.gz https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz \
+RUN curl -Lo /tmp/kubebuilder.tar.gz $KUBEBUILDER_URL \
     && tar -zxvf /tmp/kubebuilder.tar.gz -C /tmp/ \
-    && mv /tmp/kubebuilder_3.3.0_linux_amd64/kubebuilder /usr/local/bin/ \
-    && rm -rf /tmp/kubebuilder.tar.gz /tmp/kubebuilder_3.3.0_linux_amd64
+    && ls -la /tmp \
+    && mv /tmp/kubebuilder_$KUBEBUILDER_VERSION_linux_amd64/kubebuilder /usr/local/bin/ \
+    && rm -rf /tmp/kubebuilder.tar.gz /tmp/kubebuilder_$KUBEBUILDER_VERSION_linux_amd64
 
 # Ensure git and kubebuilder are on the PATH
 ENV PATH="/usr/local/bin:${PATH}"
