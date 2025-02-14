@@ -1,5 +1,5 @@
 # Use a base image, such as ubuntu
-FROM ubuntu:24.04
+FROM image-registry.openshift-image-registry.svc:5000/cicd-tools/ubuntu:24.04
 
 USER root
 
