@@ -17,11 +17,11 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 RUN export KUBEBUILDER_VERSION=4.5.0
-RUN export KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v$KUBEBUILDER_VERSION.tar.gz
-RUN echo "url $KUBEBUILDER_URL"
- 
+RUN export KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v${KUBEBUILDER_VERSION}.tar.gz
+RUN echo "url ${KUBEBUILDER_URL}"
+
 # Install Kubebuilder
-RUN curl -Lo /tmp/kubebuilder.tar.gz https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz \
+RUN curl -Lo /tmp/kubebuilder.tar.gz ${KUBEBUILDER_URL} \
     && tar -zxvf /tmp/kubebuilder.tar.gz -C /tmp/ \
     && ls -la /tmp \
     && mv /tmp/kubebuilder_4.5.0/kubebuilder /usr/local/bin/ \
