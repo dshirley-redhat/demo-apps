@@ -39,3 +39,4 @@ USER apprunner
 # Set default command
 
 CMD ["/bin/bash", "-c", "while true; do sleep 1; done"]
+ENTRYPOINT ["/bin/bash"]
