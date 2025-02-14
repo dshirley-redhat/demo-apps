@@ -16,9 +16,11 @@ RUN apt-get update && \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -Lo /tmp/go https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
-RUN tar -C /usr/local/ -xzf /tmp/go/go1.23.1.linux-amd64.tar.gz
-RUN rm -rf /tmp/go
+ENV GO_VERSION=1.23.1
+ENV GO_DL_LOCATION=/tmp/go
+RUN curl -Lo ${GO_DL_LOCATION} https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
+RUN tar -C /usr/local/ -xzf ${GO_DL_LOCATION}
+RUN rm -rf ${GO_DL_LOCATION}
 
 #ENV KUBEBUILDER_VERSION=4.5.0 \
 #    KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v${KUBEBUILDER_VERSION}.tar.gz
