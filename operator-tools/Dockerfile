@@ -3,8 +3,8 @@ FROM ubuntu:24.04
 
 USER root
 
-# Install necessary dependencies
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get update && \
     apt-get install -y \
     curl \
     git \
