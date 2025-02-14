@@ -4,8 +4,8 @@ FROM ubuntu:20.04
 USER root
 
 # Install necessary dependencies
-RUN apt-get update 
-RUN apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
     curl \
     git \
     apt-transport-https \
@@ -16,7 +16,7 @@ RUN apt-get install -y \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-RUN export KUBEBUILDER_URL https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz
+RUN KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz
 
 # Install Kubebuilder
 RUN curl -Lo /tmp/kubebuilder.tar.gz $KUBEBUILDER_URL \
