@@ -19,7 +19,7 @@ RUN apt-get update && \
 RUN export KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz
 
 # Install Kubebuilder
-RUN curl -Lo /tmp/kubebuilder.tar.gz $KUBEBUILDER_URL \
+RUN curl -Lo /tmp/kubebuilder.tar.gz https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz \
     && tar -zxvf /tmp/kubebuilder.tar.gz -C /tmp/ \
     && mv /tmp/kubebuilder_3.3.0_linux_amd64/kubebuilder /usr/local/bin/ \
     && rm -rf /tmp/kubebuilder.tar.gz /tmp/kubebuilder_3.3.0_linux_amd64
