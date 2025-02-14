@@ -14,6 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     gnupg2 \
     lsb-release \
     sudo \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 ENV GO_VERSION=1.23.1 \
