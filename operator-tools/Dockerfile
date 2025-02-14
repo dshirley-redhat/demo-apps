@@ -35,4 +35,4 @@ RUN useradd -ms /bin/bash apprunner
 USER apprunner
 
 # Set default command
-#CMD [ "sh" ]
+ENTRYPOINT [ "/bin/sh" ]
