@@ -31,7 +31,8 @@ RUN curl -L -o /tmp/kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GO
 
 WORKDIR /workspaces
 
-USER 1001
+RUN useradd -ms /bin/bash apprunner
+USER apprunner
 
 # Set default command
 #CMD [ "sh" ]
