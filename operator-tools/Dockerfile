@@ -35,4 +35,6 @@ RUN useradd -ms /bin/bash apprunner
 USER apprunner
 
 # Set default command
-ENTRYPOINT [ "/bin/sh" ]
+#ENTRYPOINT [ "/bin/sh" ]
+
+CMD ["/bin/sh", "-c", "while true; do sleep 1; done"]
