@@ -20,10 +20,9 @@ ENV GO_VERSION=1.23.1
 ENV GO_DL_LOCATION=/tmp/go
 
 RUN curl -Lo ${GO_DL_LOCATION} https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
-    tar -C /usr/local/ -xzf ${GO_DL_LOCATION} && \
+    tar -C /usr/local/bin -xzf ${GO_DL_LOCATION} && \
     rm -rf ${GO_DL_LOCATION}
-RUN ls -la /usr/local/
-RUN echo "path ${PATH}"
+RUN ls -la /usr/local/bin
 
 #ENV KUBEBUILDER_VERSION=4.5.0 \
 #    KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v${KUBEBUILDER_VERSION}.tar.gz
