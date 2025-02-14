@@ -23,8 +23,8 @@ RUN export KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archiv
 RUN curl -Lo /tmp/kubebuilder.tar.gz $KUBEBUILDER_URL \
     && tar -zxvf /tmp/kubebuilder.tar.gz -C /tmp/ \
     && ls -la /tmp \
-    && mv /tmp/kubebuilder_$KUBEBUILDER_VERSION_linux_amd64/kubebuilder /usr/local/bin/ \
-    && rm -rf /tmp/kubebuilder.tar.gz /tmp/kubebuilder_$KUBEBUILDER_VERSION_linux_amd64
+    && mv /tmp/kubebuilder_$KUBEBUILDER_VERSION/kubebuilder /usr/local/bin/ \
+    && rm -rf /tmp/kubebuilder.tar.gz /tmp/kubebuilder_$KUBEBUILDER_VERSION
 
 # Ensure git and kubebuilder are on the PATH
 ENV PATH="/usr/local/bin:${PATH}"
