@@ -31,5 +31,7 @@ RUN curl -L -o /tmp/kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GO
 
 WORKDIR /workspaces
 
+USER 1001
+
 # Set default command
 CMD [ "bash" ]
