@@ -34,4 +34,4 @@ WORKDIR /workspaces
 USER 1001
 
 # Set default command
-CMD [ "bash" ]
+#CMD [ "sh" ]
