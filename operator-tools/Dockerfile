@@ -33,7 +33,7 @@ RUN curl -L -o /tmp/kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GO
 WORKDIR /workspaces
 
 RUN useradd -ms /bin/bash apprunner
-RUN alias ll=ls -alF
+RUN alias ll='ls -alF'
 USER apprunner
 
 # Set default command
