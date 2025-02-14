@@ -29,15 +29,9 @@ ENV PATH=$PATH:/usr/local/go/bin
 #    KUBEBUILDER_URL=https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v${KUBEBUILDER_VERSION}.tar.gz
 #RUN echo "url ${KUBEBUILDER_URL}"
 
-RUN curl -L -o /tmp/kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)"
-RUN chmod +x /tmp/kubebuilder
-
-# Install Kubebuilder
-#RUN curl -Lo /tmp/kubebuilder.tar.gz https://github.com/kubernetes-sigs/kubebuilder/archive/refs/tags/v4.5.0.tar.gz \
-#    && tar -zxvf /tmp/kubebuilder.tar.gz -C /tmp/ \
-#    && ls -la /tmp \
-#    && mv /tmp/kubebuilder_4.5.0/kubebuilder /usr/local/bin/ \
-#    && rm -rf /tmp/kubebuilder.tar.gz /tmp/kubebuilder_4.5.0
+RUN curl -L -o /tmp/kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)" && \
+    chmod +x /tmp/kubebuilder && \
+    mv /tmp/kubebuilder /usr/local/bin
 
 # Ensure git and kubebuilder are on the PATH
 #ENV PATH="/usr/local/bin/:${PATH}"
